@@ -1,0 +1,491 @@
+@import "tailwindcss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #070816;
+  color: #ffffff;
+  font-family: "Inter", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #8b5cf6;
+  color: white;
+}
+
+.container-shell,
+.section-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section-container {
+  padding: 110px 0;
+}
+
+/* Gradient Text */
+
+.gradient-text {
+  background: linear-gradient(90deg, #22d3ee, #818cf8, #c084fc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: gradientMove 4s linear infinite;
+}
+
+@keyframes gradientMove {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Hero Background */
+
+.hero-bg {
+  position: relative;
+  background:
+    radial-gradient(ellipse at 15% 25%, rgba(14, 165, 233, 0.17), transparent 40%),
+    radial-gradient(ellipse at 85% 70%, rgba(139, 92, 246, 0.2), transparent 40%),
+    #070816;
+}
+
+/* Buttons */
+
+.button-primary,
+.button-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.35s ease;
+}
+
+.button-primary {
+  background: linear-gradient(100deg, #06b6d4, #7c3aed);
+  color: white;
+  box-shadow: 0 5px 25px rgba(124, 58, 237, 0.25);
+}
+
+.button-outline {
+  border: 1px solid rgba(139, 92, 246, 0.7);
+  color: white;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.button-primary:hover,
+.button-outline:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 35px rgba(139, 92, 246, 0.35);
+}
+
+/* Glass Cards */
+
+.glass-card,
+.profile-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  transition: all 0.4s ease;
+}
+
+.glass-card:hover,
+.profile-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(34, 211, 238, 0.5);
+  box-shadow: 0 15px 45px rgba(34, 211, 238, 0.1);
+}
+
+/* Profile Card */
+
+.profile-card {
+  padding: 30px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.profile-art {
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.art-initial {
+  font-size: 140px;
+  font-weight: 800;
+  color: white;
+  z-index: 1;
+  text-shadow: 0 0 35px rgba(34, 211, 238, 0.3);
+}
+
+.art-initial span {
+  color: #22d3ee;
+}
+
+.art-ring {
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  border: 2px solid rgba(34, 211, 238, 0.6);
+  border-radius: 50%;
+  box-shadow: 0 0 35px rgba(34, 211, 238, 0.15);
+  animation: rotateRing 12s linear infinite;
+}
+
+.ring-b {
+  transform: scale(1.2);
+  border-color: rgba(168, 85, 247, 0.5);
+  animation-direction: reverse;
+}
+
+@keyframes rotateRing {
+  to {
+    rotate: 360deg;
+  }
+}
+
+/* Floating Tags */
+
+.floating-tag {
+  position: absolute;
+  background: rgba(30, 41, 59, 0.85);
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  font-size: 13px;
+  backdrop-filter: blur(10px);
+}
+
+.tag-code {
+  top: 40px;
+  right: 0;
+}
+
+.tag-design {
+  bottom: 40px;
+  left: 0;
+}
+
+.card-bottom p,
+.visual-caption {
+  color: #94a3b8;
+}
+
+.visual-caption {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+/* Form Inputs */
+
+.input-style {
+  width: 100%;
+  padding: 16px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid #334155;
+  border-radius: 12px;
+  color: white;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-style:focus {
+  border-color: #22d3ee;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.12);
+}
+
+.input-style::placeholder {
+  color: #94a3b8;
+}
+
+/* Reveal Animation */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Background Orbs */
+
+.orb {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  filter: blur(100px);
+  background: #06b6d4;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.orb-one {
+  top: 10%;
+  left: 5%;
+}
+
+.orb-two {
+  bottom: 10%;
+  right: 5%;
+  background: #a855f7;
+}
+
+/* Scroll */
+
+.scroll-cue {
+  display: block;
+  text-align: center;
+  color: #94a3b8;
+  padding: 20px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.scroll-cue:hover {
+  color: #22d3ee;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .container-shell,
+  .section-container {
+    width: 92%;
+  }
+
+  .section-container {
+    padding: 70px 0;
+  }
+
+  .profile-art {
+    height: 250px;
+  }
+
+  .art-initial {
+    font-size: 100px;
+  }
+
+  .art-ring {
+    width: 180px;
+    height: 180px;
+  }
+}
+/* PREMIUM PORTFOLIO EFFECTS */
+
+/* Animated Background */
+
+.hero-bg {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(34, 211, 238, 0.2), transparent 35%),
+    radial-gradient(circle at 85% 80%, rgba(168, 85, 247, 0.22), transparent 35%),
+    linear-gradient(135deg, #070816, #10102b, #080b18);
+
+  background-size: 200% 200%;
+  animation: backgroundMove 12s ease infinite;
+}
+
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Hero Text Animation */
+
+.hero-bg h1 {
+  animation: slideUp 1s ease forwards;
+}
+
+.hero-bg h2 {
+  animation: slideUp 1.2s ease forwards;
+}
+
+.hero-bg p {
+  animation: slideUp 1.4s ease forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Premium Profile Card */
+
+.profile-card {
+  position: relative;
+  border-radius: 28px;
+  background:
+    linear-gradient(145deg, rgba(30, 41, 90, 0.65), rgba(40, 20, 75, 0.45));
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 20px 70px rgba(0, 0, 0, 0.4),
+    0 0 35px rgba(139, 92, 246, 0.12);
+}
+
+/* Glowing Initial */
+
+.art-initial {
+  text-shadow:
+    0 0 15px rgba(34, 211, 238, 0.5),
+    0 0 40px rgba(168, 85, 247, 0.5);
+  animation: floating 4s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Neon Rings */
+
+.art-ring {
+  box-shadow:
+    0 0 15px rgba(34, 211, 238, 0.3),
+    inset 0 0 15px rgba(34, 211, 238, 0.15);
+}
+
+/* Button Glow */
+
+.button-primary {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.2);
+}
+
+.button-primary:hover {
+  box-shadow:
+    0 0 20px rgba(34, 211, 238, 0.5),
+    0 0 45px rgba(139, 92, 246, 0.3);
+  transform: translateY(-6px) scale(1.03);
+}
+
+/* Card Hover */
+
+.glass-card:hover,
+.profile-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow:
+    0 20px 50px rgba(34, 211, 238, 0.1),
+    0 0 30px rgba(168, 85, 247, 0.15);
+}
+
+/* Selection */
+
+::selection {
+  background: #8b5cf6;
+  color: white;
+}
+
+/* Smooth Scroll */
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+@media (max-width: 768px) {
+  .hero-bg h1 {
+    font-size: 45px;
+  }
+
+  .profile-card {
+    margin-top: 20px;
+  }
+}
+/* SKILLS CARD DESIGN */
+
+.skill-card {
+  position: relative;
+  min-height: 190px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+
+  background: linear-gradient(
+    135deg,
+    rgba(30, 41, 75, 0.9),
+    rgba(76, 29, 149, 0.35)
+  );
+
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  border-radius: 22px;
+  backdrop-filter: blur(15px);
+
+  transition: all 0.4s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  border-color: #22d3ee;
+  box-shadow: 0 15px 40px rgba(34, 211, 238, 0.2);
+}
+
+.skill-card h3 {
+  font-size: 24px;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.skill-card p {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.skill-arrow {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  color: #22d3ee;
+  font-size: 24px;
+  transition: 0.3s;
+}
+
+.skill-card:hover .skill-arrow {
+  transform: translate(5px, -5px);
+}
